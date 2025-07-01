@@ -1,43 +1,87 @@
-// Instructions:
-// Complete each task below without looking at references.
-// Try to recall the syntax from memory and write valid Go code.
+package main
 
-// 1. Declare a package-level variable.
+import (
+	"fmt"
+)
 
-// 2. Declare a variable `name` of type string and assign it your name.
+// 1
+var packageLevel int
 
-// 3. Declare an integer variable `age` and assign it a value.
+// 8
+const pi float32 = 3.14159
 
-// 4. Declare a float variable `height` and assign it a value.
+func main() {
+	// 2
+	var name string = "Charl"
+	// 3
+	var age int = 24
+	// 4
+	var height float64 = 80.0
+	// 5
+	isCodingFun := true
+	// 6
+	var city, country, population string
+	// 7
+	favouriteLanguage := "Golang"
 
-// 5. Declare a boolean variable `isCodingFun` and assign it `true`.
+	// 9
+	x := 1
+	y := 2
+	x, y = y, x
 
-// 6. Declare multiple variables in a single line `city`, `country`, `population`.
+	// 10
+	fmt.Printf("Type: %T\n", x)
 
-// 7. Use the shorthand syntax to declare and initialize a variable for your favorite language.
+	// 11
+	var x int
+	fmt.Printf("Zero valued: %d\n", x)
 
-// 8. Declare a constant `pi` with a value of 3.14159.
+	// 12
+	var p *int
+	p = &x
+	*p = 999
 
-// 9. Swap two variables without using a temporary variable.
+	// 13 Continue
+	a, b, c := ReturnMultipleValues()
 
-// 10. Print the **type** of a variable using the golang formatting lib
+	// 14
+	someFloat := float64(a)
+	someIntConverted := int(a)
 
-// 11. Declare a zero-valued variable without assigning anything. Print its default value.
+	// 15
+	const someInt = 33
+	var diffTyped float64 = someInt
 
-// 12. Declare a pointer variable that points to an integer and modify the value using the pointer.
+	// 17
+	someIntValue := new(int)
+	*someIntValue = 44
 
-// 13. Create a function that returns multiple values and store them in variables.
+	// 18
+	if someVal := 1; x == 33 {
+		// Do something here, perhaps with someval...
+	}
+}
 
-// 14. Convert an integer to a float and vice versa.
+// 13
+func ReturnMultipleValues() (int, int, int) {
+	return 1, 2, 3
+}
 
-// 15. Use `const` with an untyped constant and assign it to different typed variables.
+// 16
+func ShadowedVar(x int) {
+	iter := 5
+	for x := 0; x <= iter; x++ {
+		fmt.Println("x is being shadowed")
+	}
 
-// 16. Declare and use a shadowed variable inside a function.
+	fmt.Println("x: ", x)
+}
 
-// 17. Use the new keyword to allocate memory for an integer and modify its value.
-
-// 18. Use shorthand assignment inside an `if` statement.
-
-// 19. Use a function closure to modify an outer variable.
-
-
+// 19
+func OuterFunc() func() {
+	counter := 0
+	return func() {
+		counter += 1
+		fmt.Printf("Counter: %d", counter)
+	}
+}
